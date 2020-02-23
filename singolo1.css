@@ -34,13 +34,14 @@ body {
 
 .wrapper {
     width: 940px;
+    height: 100%;
     margin: auto;
 }
 
 /* Header */
 
 .header {
-    height: 90px;
+    height: 89px;
     background-color: #2d303a;
     border-bottom: 6px solid #323746;
     text-transform: uppercase;
@@ -64,7 +65,6 @@ h1.logo {
 .navigation {
     margin-top: 42px;
     font-size: 1.2em;
-    /* line-height: 0.5em; */
     font-weight: 700;
 }
 .navigation-list {
@@ -82,4 +82,27 @@ h1.logo {
 }
 .point {
     color: #494e62;
+}
+
+/* Slider */
+.slider {
+    height: 594px;
+    background-color: #f06c64;
+    border-bottom: 6px solid #ea676b;
+}
+.slider-inner {
+    height: inherit;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.slider-button {
+    background: inherit;
+    border: unset;
+}
+.slider-button:hover {
+    cursor: pointer;
+}
+.slider-button:active {
+    transform: scale(0.8);
 }
