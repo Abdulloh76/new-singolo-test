@@ -137,3 +137,36 @@ a.contact-information_item:hover {
     text-decoration: none;
     color: inherit;
 }
+
+/* Footer */
+
+.footer {
+    width: 100%;
+    height: 76px;
+    background-color: #2d303a;
+}
+.footer-inner {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.copyright {
+    color: #626984;
+    font-family: sans-serif;
+    font-size: 1.2em;
+}
+.social-media {
+    width: 152px;
+    display: flex;
+    justify-content: space-between;
+}
+.social-media_icon {
+    height: 30px;
+    width: 30px;
+    border: 1px solid #666d89;
+    border-radius: 100%;
+}
+.social-media_icon img {
+    padding: 8px;
+}
