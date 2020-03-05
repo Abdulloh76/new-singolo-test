@@ -330,3 +330,135 @@ p.portfolio-text {
 }
 
 
+/* Get a Quote */
+
+.get-quote {
+    height: 648px;
+    color: #f0d8d9;
+    border-bottom: 6px solid #ea676b;
+    background-color: #f06c64;
+}
+.get-quote_head {
+    padding-top: 67px;
+    font-family: 'Lato-Black', sans-serif;
+    font-size: 3em;
+    line-height: 0.6em;
+}
+.get-quote_text {
+    padding-top: 28px;
+    font-size: 1.8em;
+    line-height: 1.7em;
+    word-spacing: -0.4px;
+}
+.get-quote_content {
+    margin-top: 45px;
+    display: flex;
+    justify-content: space-between;
+}
+.get-quote_form {
+    width: 620px;
+}
+.get-quote_item {
+    height: 38px;
+    width: 620px;
+    margin-bottom: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #d6564f;
+}
+.get-quote_item::placeholder {
+    padding-left: 15px;
+    padding-top: 7px;
+    color: #f48c8f;
+    font-size: 12px;
+    line-height: 1.8em;
+    letter-spacing: 0.25px;
+    font-family: 'Lato-Regular', sans-serif;
+}
+textarea.get-quote_item {
+    height: 202px;
+}
+.submit {
+    width: 15%;
+    float: right;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+    background-color: #e14139;
+    color: #f48c8f;
+    font-family: 'Lato-Bold', sans-serif;
+}
+.contact-information {
+    width: 300px;
+}
+.contact-information_head {
+    font-family: 'Lato-Black', sans-serif;
+    font-size: 1.8em;
+    line-height: 1em;
+}
+.contact-information_text {
+    padding-top: 10px;
+    text-align: justify;
+    font-family: 'Lato-Regular', sans-serif;
+    font-size: 1.2em;
+    line-height: 1.8em;
+    letter-spacing: -0.2px;
+}
+.contact-information_item {
+    display: block;
+    font-family: 'Lato-Regular', sans-serif;
+    font-size: 1.2em;
+    line-height: 1.8em;
+}
+.contact-information_icons {
+    margin-top: 24px;
+}
+.contact-information_item img {
+    margin-right: 12px; 
+}
+.contact-information_item:link {
+    text-decoration: none;
+}
+
+a.contact-information_item:hover {
+    text-decoration: none;
+    color: #ef838c;
+}
+.contact-information_item:visited {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Footer */
+
+.footer {
+    width: 100%;
+    height: 76px;
+    background-color: #2d303a;
+}
+.footer-inner {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.copyright {
+    color: #626984;
+    font-family: sans-serif;
+    font-size: 1.2em;
+}
+.footer_social-media {
+    width: 152px;
+    display: flex;
+    justify-content: space-between;
+}
+.social-media_icon {
+    height: 30px;
+    width: 30px;
+    border: 1px solid #666d89;
+    border-radius: 100%;
+}
+.social-media_icon img {
+    padding: 8px;
+}
