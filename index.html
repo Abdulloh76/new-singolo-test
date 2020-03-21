@@ -9,21 +9,21 @@
 <body>
     <!-- Header -->
 
-    <header class="header">
+    <header class="header" id="home">
         <div class="wrapper">
            <div class="header-inner">
                 <h1 class="logo"><a href="#">singolo<span class="colored">*</span></a></h1>
                 <nav class="navigation">
                     <ul class="navigation-list">
-                        <li class="navigation-item"><a href="#" id="active">home</a></li> 
-                        <li class="navigation-item point">·</li>
-                        <li class="navigation-item"><a href="#">services</a></li>
-                        <li class="navigation-item point">·</li>
-                        <li class="navigation-item"><a href="#">portfolio</a></li>
-                        <li class="navigation-item point">·</li>
-                        <li class="navigation-item"><a href="#">about</a></li>
-                        <li class="navigation-item point">·</li>
-                        <li class="navigation-item"><a href="#">contact</a></li>
+                        <li class="navigation-item active">home</li> 
+                        <li class="point">·</li>
+                        <li class="navigation-item">services</li>
+                        <li class="point">·</li>
+                        <li class="navigation-item">portfolio</li>
+                        <li class="point">·</li>
+                        <li class="navigation-item">about</li>
+                        <li class="point">·</li>
+                        <li class="navigation-item">contact</li>
                     </ul>
                 </nav>               
            </div> 
@@ -33,31 +33,36 @@
 
     <!-- Slider -->
 
-    <div class="slider">
-        <div class="wrapper">
-            <div class="slider-inner">
-                <div class="previous">
-                    <button class="slider-button"> <img src="assets/img/prev.png" alt="previous"> </button>
-                </div>
-                
-                <div class="vertical">
-                    <img src="assets/img/vertical.png" alt="Vertical oriented phone" class="vertical-phone">
+    <div class="slider" id="home">
+        <div class="wrapper slider__wrapper">
+            <button class="slider-button prev"> <img src="assets/img/prev.png" alt="previous"> </button>
+            
+            <div class="slider__content">
+                <div class="slider__item slider-first">
+                    <span>
+                        <img src="assets/img/vertical.png" alt="Vertical oriented phone" class="phone vertical">
+                        <img src="assets/img/screen.png" alt="" class="y-screen hidden">
+                    </span>
+                    <span>
+                        <img src="assets/img/horizontal.png" alt="Horizontal oriented phone" class="phone horizontal">
+                        <img src="assets/img/screen.png" alt="" class="x-screen hidden">
+                    </span>
                 </div>
 
-                <div class="horizontal">
-                    <img src="assets/img/horizontal.png" alt="Horizontal oriented phone" class="horizontal-phone">
-                </div>
-
-                <div class="next">
-                    <button class="slider-button"> <img src="assets/img/next.png" alt="next"> </button>
-                </div>
+                <div class="slider__item slider-second">
+                    <span class="phone">
+                        <img src="assets/img/slide-item.png" alt="Phone" class="phone">
+                    </span>
+                </div> 
             </div>
+
+            <button class="slider-button next"> <img src="assets/img/next.png" alt="next"> </button>
         </div>
     </div>
 
     <!-- Services section -->
 
-    <section class="services">
+    <section class="services" id="services">
         <div class="wrapper">
             <div class="services-inner">
                 <div class="services-text">
@@ -132,7 +137,7 @@
 
     <!-- Portfolio section -->
 
-    <section class="portfolio">
+    <section class="portfolio" id="portfolio">
         <div class="wrapper">
             <div class="portfolio-title">
                 <h1 class="portfolio-head">portfolio</h1>
@@ -140,7 +145,7 @@
             </div>
 
             <div class="portfolio-tags">
-                <span class="tag active-tag">all</span>
+                <span class="active-tag tag">all</span>
                 <span class="tag">web design</span>
                 <span class="tag">graphic design</span>
                 <span class="tag">artwork</span>
@@ -165,7 +170,7 @@
 
     <!-- About us section -->
 
-    <section class="about-us">
+    <section class="about-us" id="about">
         <div class="wrapper">
             <div class="about-us_title">
                 <h1 class="about-us_head">about us</h1>
@@ -215,7 +220,7 @@
 
     <!-- Get a Quote section -->
 
-    <section class="get-quote">
+    <section class="get-quote" id="contact">
         <div class="wrapper">
             <div class="get-quote_title">
                 <h1 class="get-quote_head">Get a Quote</h3>
@@ -224,19 +229,28 @@
 
             <div class="get-quote_content">
                 <div class="get-quote_form"> 
-                    <form action="" method="POST">
+                    <form action="" method="GET">
                         <label>
-                            <input type="text" class="get-quote_item" placeholder="Name(Required)" required>
+                            <input type="text" class="get-quote_item name" placeholder="Name(Required)" required>
                         </label>
                         <label>
-                            <input type="email" class="get-quote_item" placeholder="Email(Required)" required>
+                            <input type="email" class="get-quote_item email" placeholder="Email(Required)" required>
                         </label>
                         <label>
-                            <input type="text" class="get-quote_item" placeholder="Subject">
+                            <input type="text" class="get-quote_item subject" placeholder="Subject">
                         </label>
-                        <textarea name="" class="get-quote_item" placeholder="Describe your project in detail..."></textarea>
-                        <button class="submit">SUBMIT</button>
+                        <textarea class="get-quote_item description" placeholder="Describe your project in detail..."></textarea>
+                        <button class="send">SEND</button>
                     </form> 
+                    <div class="message-block hidden">
+                        <div class="message">
+                            <p>The letter was sent</p>
+                            <p id="theme">Subject: <span class="subject-result"></span></p>
+                            <p id="description">Description: <span class="describe-result"></span></p>
+                            <br> 
+                            <button class="message-btn">OK</button>
+                        </div>
+                    </div>
                 </div> 
             
                 <div class="contact-information">
@@ -244,8 +258,8 @@
                     <p class="contact-information_text">Quisque hendrerit purus dapibus, ornare nibh vitae, viverra nibh. Fusce vitae aliquam tellus. Proin sit amet volutpat libero. Nulla sed nunc et tortor luctus faucibus. Morbi at aliquet turpis, et consequat felis.</p>
                     <div class="contact-information_icons">
                         <a href="" class="contact-information_item"><img src="assets/contact-icons/location.png" alt="Location">Elm St. 14/05 Lost City</a>
-                        <a href="" class="contact-information_item"><img src="assets/contact-icons/phone.png" alt="Phone">03528 331 86 35</a>
-                        <a href="" class="contact-information_item"><img src="assets/contact-icons/mail.png" alt="Email">info@singolo.com</a>
+                        <a href="tel:03528 331 86 35" class="contact-information_item"><img src="assets/contact-icons/phone.png" alt="Phone">03528 331 86 35</a>
+                        <a href="mailto:info@singolo.com" class="contact-information_item"><img src="assets/contact-icons/mail.png" alt="Email">info@singolo.com</a>
                     </div>
                 </div>
             </div>
@@ -269,5 +283,6 @@
         </div>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
