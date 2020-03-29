@@ -1,5 +1,7 @@
 const headerHeight = document.querySelector('.header').offsetHeight;
 const navMenu = document.querySelector('.navigation-list');
+const navButton = document.querySelector('.nav-button');
+const navigation = document.querySelector('.navigation');
 
 // Navigation Menu
 document.addEventListener('scroll', onScroll);
@@ -9,7 +11,7 @@ function onScroll(event) {
     const links = navMenu.querySelectorAll('.navigation-item');
 
     scrollBlocks.forEach(item => {
-        if (item.parentNode.offsetTop <= currentPos && (item.parentNode.offsetTop + item.parentNode.offsetHeight) > currentPos) {
+        if (item.parentNode.offsetTop <= currentPos+headerHeight && (item.parentNode.offsetTop + item.parentNode.offsetHeight) > currentPos) {
             links.forEach(el => {
                 el.classList.remove('active');
                 if (item.parentNode.getAttribute('id') === el.innerHTML) {
@@ -19,8 +21,13 @@ function onScroll(event) {
         }
     });
 
-    // if (!document.querySelector('.message-block').classList.contains('hidden'))
-        // offScroll();
+    if (navButton.classList.contains('nav-button-active')) {
+        document.querySelector('body').classList.add('overflow-none');
+    }
+    else {
+        document.querySelector('body').classList.remove('overflow-none');
+    }
+    
 }
 
 navMenu.addEventListener('click', (event) => {
@@ -28,6 +35,10 @@ navMenu.addEventListener('click', (event) => {
 
     event.target.classList.add('active');
     
+    navigation.classList.remove('navigation-active');
+    navButton.classList.toggle('nav-button-active');
+    document.querySelector('.logo').classList.toggle('logo-moved');
+
     switch(navMenu.querySelector('.active').innerHTML) {
         case 'home': window.scrollTo(0,0); break;
         case 'services': window.scrollTo(0, document.querySelector(".services").offsetTop-headerHeight); break;
@@ -37,10 +48,17 @@ navMenu.addEventListener('click', (event) => {
     }
 });
 
+// Navigation Button
+navButton.onclick = function() {
+    navButton.classList.toggle('nav-button-active');
+    navigation.classList.toggle('navigation-active');
+    document.querySelector('.logo').classList.toggle('logo-moved');
+}
+
 // Slider
+
 const slides = document.querySelectorAll('.slider__item');
 const slider = [];
-
 for (let i=0; i<slides.length; i++) {
     slider.push(slides[i]);
     slides[i].remove();
@@ -50,24 +68,32 @@ let sliderContent = document.querySelector('.slider__content');
 let step = 0;
 
 sliderContent.append(slider[step]);
-
+document.querySelector('.slider').classList.add('slider-first'); 
 function prev() {
     step = (step==0)?slider.length-1:step-1;
     sliderContent.append(slider[step]);
-    slider[step].style.left = -1020 + 'px';
+    slider[step].style.left = -100 + 'vw';
 
     setTimeout(function() {
-        slider[step].style.left = 0 + 'px';        
+        slider[step].style.left = 0 + 'px';      
     }, 600);
+    setTimeout(function() {
+        document.querySelector('.slider').classList.toggle('slider-first');   
+        document.querySelector('.slider').classList.toggle('slider-second');   
+    }, 800);
 }
 function next() {    
     step = (step==slider.length-1)?0:step+1;
     sliderContent.append(slider[step]);
-    slider[step].style.left = 1020 + 'px';
+    slider[step].style.left = 100 + 'vw';
 
     setTimeout(function() {
         slider[step].style.left = 0 + 'px';        
     }, 600);
+    setTimeout(function() {
+        document.querySelector('.slider').classList.toggle('slider-first');   
+        document.querySelector('.slider').classList.toggle('slider-second');   
+    }, 800);
 }
 document.querySelector('.prev').onclick = prev;
 document.querySelector('.next').onclick = next;
@@ -92,9 +118,12 @@ document.querySelector('.y-screen').onclick = vertical;
 const  portfolioContent = document.querySelector('.portfolio-content');
 
 portfolioContent.addEventListener('click', function(event) {
-    portfolioContent.querySelectorAll('.portfolio-item').forEach(item => item.style.border = '');
-    portfolioContent.style.border = '';
-    event.target.style.border = '5px solid #F06C64';
+    portfolioContent.querySelectorAll('.portfolio-item>img').forEach(item => item.classList.remove('selected'));
+    for (let i=0; i<portfolioContent.querySelectorAll('.portfolio-item').length; i++) {
+        // portfolioContent.querySelectorAll('.portfolio-item')[i].style.border = '';
+    }
+    portfolioContent.classList.remove('selected');
+    event.target.classList.add('selected');
 });
 
 
@@ -112,7 +141,7 @@ tags.addEventListener('click', function(event) {
     for (let i=0; i<portfolioImg.length; i++) {
         portfolioImg[i].remove();
     }
-    for (let i=0; i<tmpArr.length-1; i+=2){
+    for (let i=0; i<tmpArr.length-1; i++){
         tmp = tmpArr[i];
         tmpArr[i] = tmpArr[i+1];
         tmpArr[i+1] = tmp;
